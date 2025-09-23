@@ -1,665 +1,555 @@
 @include('header')
-<main>
-    <!--start the project-->
-    <div id="main-wrapper" class=" flex p-5 xl:pr-0">
-      @include('navbar')
-        <div class=" w-full page-wrapper xl:px-6 px-0">
+<!--  Body Wrapper -->
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed">
 
-            <!-- Main Content -->
-            <main class="h-full  max-w-full">
-                <div class="container full-container p-0 flex flex-col gap-6">
-                    <!--  Header Start -->
-                    <header class=" bg-white shadow-md rounded-md w-full text-sm py-4 px-6">
-
-
-                        <!-- ========== HEADER ========== -->
-
-                        <nav class=" w-ful flex items-center justify-between" aria-label="Global">
-                            <ul class="icon-nav flex items-center gap-4">
-                                <li class="relative xl:hidden">
-                                    <a class="text-xl  icon-hover cursor-pointer text-heading"
-                                       id="headerCollapse" data-hs-overlay="#application-sidebar-brand"
-                                       aria-controls="application-sidebar-brand" aria-label="Toggle navigation" href="javascript:void(0)">
-                                        <i class="ti ti-menu-2 relative z-1"></i>
-                                    </a>
-                                </li>
-
-                                <li class="relative">
-
-                                    <div class="hs-dropdown relative inline-flex [--placement:bottom-left] sm:[--trigger:hover]">
-                                        <a class="relative hs-dropdown-toggle inline-flex hover:text-gray-500 text-gray-300" href="#">
-                                            <i class="ti ti-bell-ringing text-xl relative z-[1]"></i>
-                                            <div
-                                                class="absolute inline-flex items-center justify-center  text-white text-[11px] font-medium  bg-blue-600 w-2 h-2 rounded-full -top-[1px] -right-[6px]">
-                                            </div>
-                                        </a>
-                                        <div class="card hs-dropdown-menu transition-[opacity,margin] rounded-md duration hs-dropdown-open:opacity-100 opacity-0 mt-2 min-w-max  w-[300px] hidden z-[12]"
-                                             aria-labelledby="hs-dropdown-custom-icon-trigger">
-                                            <div>
-                                                <h3 class="text-gray-500 font-semibold text-base px-6 py-3">Notification</h3>
-                                                <ul class="list-none  flex flex-col">
-                                                    <li>
-                                                        <a href="#" class="py-3 px-6 block hover:bg-gray-200">
-                                                            <p class="text-sm text-gray-500 font-medium">Roman Joined the Team!</p>
-                                                            <p class="text-xs text-gray-400 font-medium">Congratulate him</p>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="py-3 px-6 block hover:bg-gray-200">
-                                                            <p class="text-sm text-gray-500 font-medium">New message received</p>
-                                                            <p class="text-xs text-gray-400 font-medium">Salma sent you new message</p>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="py-3 px-6 block hover:bg-gray-200">
-                                                            <p class="text-sm text-gray-500 font-medium">New Payment received</p>
-                                                            <p class="text-xs text-gray-400 font-medium">Check your earnings</p>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="py-3 px-6 block hover:bg-gray-200">
-                                                            <p class="text-sm text-gray-500 font-medium">Jolly completed tasks</p>
-                                                            <p class="text-xs text-gray-400 font-medium">Assign her new tasks</p>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="py-3 px-6 block hover:bg-gray-200">
-                                                            <p class="text-sm text-gray-500 font-medium">Roman Joined the Team!</p>
-                                                            <p class="text-xs text-gray-400 font-medium">Congratulate him</p>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </li>
-                            </ul>
-                            <div class="flex items-center gap-4">
-
-                                <div class="hs-dropdown relative inline-flex [--placement:bottom-right] sm:[--trigger:hover]">
-                                    <a class="relative hs-dropdown-toggle cursor-pointer align-middle rounded-full">
-                                        <img class="object-cover w-9 h-9 rounded-full" src="../assets/images/profile/user-1.jpg" alt=""
-                                             aria-hidden="true">
-                                    </a>
-                                    <div class="card hs-dropdown-menu transition-[opacity,margin] rounded-md duration hs-dropdown-open:opacity-100 opacity-0 mt-2 min-w-max  w-[200px] hidden z-[12]"
-                                         aria-labelledby="hs-dropdown-custom-icon-trigger">
-                                        <div class="card-body p-0 py-2">
-                                            <a href="javscript:void(0)" class="flex gap-2 items-center font-medium px-4 py-1.5 hover:bg-gray-200 text-gray-400">
-                                                <i class="ti ti-user  text-xl "></i>
-                                                <p class="text-sm ">My Profile</p>
-                                            </a>
-                                            <a href="javscript:void(0)" class="flex gap-2 items-center font-medium px-4 py-1.5 hover:bg-gray-200 text-gray-400">
-                                                <i class="ti ti-mail  text-xl"></i>
-                                                <p class="text-sm ">My Account</p>
-                                            </a>
-                                            <a href="javscript:void(0)" class="flex gap-2 items-center font-medium px-4 py-1.5 hover:bg-gray-200 text-gray-400">
-                                                <i class="ti ti-list-check  text-xl "></i>
-                                                <p class="text-sm ">My Task</p>
-                                            </a>
-                                            <div class="px-4 mt-[7px] grid">
-                                                <a href="../../pages/authentication-login.html" class="btn-outline-primary font-medium text-[15px] w-full hover:bg-blue-600 hover:text-white">Logout</a>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </nav>
-
-                        <!-- ========== END HEADER ========== -->
-                    </header>
-                    <!--  Header End -->
-                    <div class="grid grid-cols-1 lg:grid-cols-3 lg:gap-x-6 gap-x-0 lg:gap-y-0 gap-y-6">
-                        <div class="col-span-2">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="flex  justify-between mb-5">
-                                        <h4 class="text-gray-500 text-lg font-semibold sm:mb-0 mb-2">Profit &
-                                            Expenses</h4>
-                                        <div
-                                            class="hs-dropdown relative inline-flex [--placement:bottom-right] sm:[--trigger:hover]">
-                                            <a
-                                                class="relative hs-dropdown-toggle cursor-pointer align-middle rounded-full">
-                                                <i class="ti ti-dots-vertical text-2xl text-gray-400"></i>
-                                            </a>
-                                            <div class="card hs-dropdown-menu transition-[opacity,margin] rounded-md duration hs-dropdown-open:opacity-100 opacity-0 mt-2 min-w-max  w-[150px] hidden z-[12]"
-                                                 aria-labelledby="hs-dropdown-custom-icon-trigger">
-                                                <div class="card-body p-0 py-2">
-                                                    <a href="javscript:void(0)"
-                                                       class="flex gap-2 items-center font-medium px-4 py-2.5 hover:bg-gray-200 text-gray-400">
-                                                        <p class="text-sm ">Action</p>
-                                                    </a>
-                                                    <a href="javscript:void(0)"
-                                                       class="flex gap-2 items-center font-medium px-4 py-2.5 hover:bg-gray-200 text-gray-400">
-                                                        <p class="text-sm ">Another Action</p>
-                                                    </a>
-                                                    <a href="javscript:void(0)"
-                                                       class="flex gap-2 items-center font-medium px-4 py-2.5 hover:bg-gray-200 text-gray-400">
-                                                        <p class="text-sm ">Something else here</p>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="profit"></div>
-                                </div>
+    <!-- Sidebar Start -->
+   @include('navbar')
+    <!--  Sidebar End -->
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+        <!--  Header Start -->
+        <header class="app-header">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <ul class="navbar-nav">
+                    <li class="nav-item d-block d-xl-none">
+                        <a class="nav-link sidebartoggler " id="headerCollapse" href="javascript:void(0)">
+                            <i class="ti ti-menu-2"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link " href="javascript:void(0)" id="drop1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="ti ti-bell"></i>
+                            <div class="notification bg-primary rounded-circle"></div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-animate-up" aria-labelledby="drop1">
+                            <div class="message-body">
+                                <a href="javascript:void(0)" class="dropdown-item">
+                                    Item 1
+                                </a>
+                                <a href="javascript:void(0)" class="dropdown-item">
+                                    Item 2
+                                </a>
                             </div>
                         </div>
+                    </li>
+                </ul>
+                <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
+                    <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
 
-                        <div class="flex flex-col gap-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="text-gray-500 text-lg font-semibold mb-4">Traffic Distribution</h4>
-                                    <div class="flex items-center justify-between gap-12">
-                                        <div>
-                                            <h3 class="text-[22px] font-semibold text-gray-500 mb-4">$36,358</h3>
-                                            <div class="flex items-center gap-1 mb-3">
-													<span
-                                                        class="flex items-center justify-center w-5 h-5 rounded-full bg-teal-400">
-														<i class="ti ti-arrow-up-left text-teal-500"></i>
-													</span>
-                                                <p class="text-gray-500 text-sm font-normal ">+9%</p>
-                                                <p class="text-gray-400 text-sm font-normal text-nowrap">last year
-                                                </p>
-                                            </div>
-                                            <div class="flex gap-4">
-                                                <div class="flex gap-2 items-center">
-                                                    <span class="w-2 h-2 rounded-full bg-blue-600"></span>
-                                                    <p class="text-gray-400 font-normal text-xs">Oragnic</p>
-                                                </div>
-                                                <div class="flex gap-2 items-center">
-                                                    <span class="w-2 h-2 rounded-full bg-red-500"></span>
-                                                    <p class="text-gray-400 font-normal text-xs"> Refferal</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="flex  items-center">
-                                            <div id="grade"></div>
-                                        </div>
-                                    </div>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link " href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                <img src="./assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
+                                <div class="message-body">
+                                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                                        <i class="ti ti-user fs-6"></i>
+                                        <p class="mb-0 fs-3">My Profile</p>
+                                    </a>
+                                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                                        <i class="ti ti-mail fs-6"></i>
+                                        <p class="mb-0 fs-3">My Account</p>
+                                    </a>
+                                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                                        <i class="ti ti-list-check fs-6"></i>
+                                        <p class="mb-0 fs-3">My Task</p>
+                                    </a>
+                                    <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                                 </div>
                             </div>
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="flex gap-6 items-center justify-between">
-                                        <div class="flex flex-col gap-4">
-                                            <h4 class="text-gray-500 text-lg font-semibold">Product Sales</h4>
-                                            <div class="flex flex-col gap-4">
-                                                <h3 class="text-[22px] font-semibold text-gray-500">$6,820</h3>
-                                                <div class="flex items-center gap-1">
-														<span
-                                                            class="flex items-center justify-center w-5 h-5 rounded-full bg-red-400">
-															<i class="ti ti-arrow-down-right text-red-500"></i>
-														</span>
-                                                    <p class="text-gray-500 text-sm font-normal ">+9%</p>
-                                                    <p class="text-gray-400 text-sm font-normal text-nowrap">last
-                                                        year</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div
-                                            class="w-11 h-11 flex justify-center items-center rounded-full bg-red-500 text-white self-start">
-                                            <i class="ti ti-currency-dollar text-xl"></i>
-                                        </div>
-
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!--  Header End -->
+        <div class="body-wrapper-inner">
+            <div class="container-fluid">
+                <!--  Row 1 -->
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="card w-100">
+                            <div class="card-body">
+                                <div class="d-md-flex align-items-center">
+                                    <div>
+                                        <h4 class="card-title">Sales Overview</h4>
+                                        <p class="card-subtitle">
+                                            Ample admin Vs Pixel admin
+                                        </p>
+                                    </div>
+                                    <div class="ms-auto">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="list-inline-item text-primary">
+                                                <span class="round-8 text-bg-primary rounded-circle me-1 d-inline-block"></span>
+                                                Ample
+                                            </li>
+                                            <li class="list-inline-item text-info">
+                                                <span class="round-8 text-bg-info rounded-circle me-1 d-inline-block"></span>
+                                                Pixel Admin
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
-                                <div id="earning"></div>
+                                <div id="sales-overview" class="mt-4 mx-n6"></div>
                             </div>
                         </div>
-
-
                     </div>
-                    <div class="grid grid-cols-1 lg:grid-cols-3 lg:gap-x-6 gap-x-0 lg:gap-y-0 gap-y-6">
+                    <div class="col-lg-4">
+                        <div class="card overflow-hidden">
+                            <div class="card-body pb-0">
+                                <div class="d-flex align-items-start">
+                                    <div>
+                                        <h4 class="card-title">Weekly Stats</h4>
+                                        <p class="card-subtitle">Average sales</p>
+                                    </div>
+                                    <div class="ms-auto">
+                                        <div class="dropdown">
+                                            <a href="javascript:void(0)" class="text-muted" id="year1-dropdown" data-bs-toggle="dropdown"
+                                               aria-expanded="false">
+                                                <i class="ti ti-dots fs-7"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="year1-dropdown">
+                                                <li>
+                                                    <a class="dropdown-item" href="javascript:void(0)">Action</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-4 pb-3 d-flex align-items-center">
+                    <span class="btn btn-primary rounded-circle round-48 hstack justify-content-center">
+                      <i class="ti ti-shopping-cart fs-6"></i>
+                    </span>
+                                    <div class="ms-3">
+                                        <h5 class="mb-0 fw-bolder fs-4">Top Sales</h5>
+                                        <span class="text-muted fs-3">Johnathan Doe</span>
+                                    </div>
+                                    <div class="ms-auto">
+                                        <span class="badge bg-secondary-subtle text-muted">+68%</span>
+                                    </div>
+                                </div>
+                                <div class="py-3 d-flex align-items-center">
+                    <span class="btn btn-warning rounded-circle round-48 hstack justify-content-center">
+                      <i class="ti ti-star fs-6"></i>
+                    </span>
+                                    <div class="ms-3">
+                                        <h5 class="mb-0 fw-bolder fs-4">Best Seller</h5>
+                                        <span class="text-muted fs-3">MaterialPro Admin</span>
+                                    </div>
+                                    <div class="ms-auto">
+                                        <span class="badge bg-secondary-subtle text-muted">+68%</span>
+                                    </div>
+                                </div>
+                                <div class="py-3 d-flex align-items-center">
+                    <span class="btn btn-success rounded-circle round-48 hstack justify-content-center">
+                      <i class="ti ti-message-dots fs-6"></i>
+                    </span>
+                                    <div class="ms-3">
+                                        <h5 class="mb-0 fw-bolder fs-4">Most Commented</h5>
+                                        <span class="text-muted fs-3">Ample Admin</span>
+                                    </div>
+                                    <div class="ms-auto">
+                                        <span class="badge bg-secondary-subtle text-muted">+68%</span>
+                                    </div>
+                                </div>
+                                <div class="pt-3 mb-7 d-flex align-items-center">
+                    <span class="btn btn-secondary rounded-circle round-48 hstack justify-content-center">
+                      <i class="ti ti-diamond fs-6"></i>
+                    </span>
+                                    <div class="ms-3">
+                                        <h5 class="mb-0 fw-bolder fs-4">Top Budgets</h5>
+                                        <span class="text-muted fs-3">Sunil Joshi</span>
+                                    </div>
+                                    <div class="ms-auto">
+                                        <span class="badge bg-secondary-subtle text-muted">+15%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="text-gray-500 text-lg font-semibold mb-5">Upcoming Schedules</h4>
-                                <ul class="timeline-widget relative">
-                                    <li class="timeline-item flex relative overflow-hidden min-h-[70px]">
-                                        <div
-                                            class="timeline-time text-gray-500 text-sm min-w-[90px] py-[6px] pr-4 text-end">
-                                            9:30 am
-                                        </div>
-                                        <div class="timeline-badge-wrap flex flex-col items-center ">
-                                            <div
-                                                class="timeline-badge w-3 h-3 rounded-full shrink-0 bg-transparent border-2 border-blue-600 my-[10px]">
-                                            </div>
-                                            <div class="timeline-badge-border block h-full w-[1px] bg-gray-100">
-                                            </div>
-                                        </div>
-                                        <div class="timeline-desc py-[6px] px-4">
-                                            <p class="text-gray-500 text-sm font-normal">Payment received from John
-                                                Doe of $385.90</p>
-                                        </div>
-                                    </li>
-                                    <li class="timeline-item flex relative overflow-hidden min-h-[70px]">
-                                        <div
-                                            class="timeline-time text-gray-500 min-w-[90px] py-[6px] text-sm pr-4 text-end">
-                                            10:00 am
-                                        </div>
-                                        <div class="timeline-badge-wrap flex flex-col items-center ">
-                                            <div
-                                                class="timeline-badge w-3 h-3 rounded-full shrink-0 bg-transparent border-2 border-blue-300 my-[10px]">
-                                            </div>
-                                            <div class="timeline-badge-border block h-full w-[1px] bg-gray-100">
-                                            </div>
-                                        </div>
-                                        <div class="timeline-desc py-[6px] px-4 text-sm">
-                                            <p class="text-gray-500  font-semibold">New sale recorded</p>
-                                            <a href="javascript:void('')" class="text-blue-600">#ML-3467</a>
-                                        </div>
-                                    </li>
+                                <div class="d-md-flex align-items-center">
+                                    <div>
+                                        <h4 class="card-title">Products Performance</h4>
+                                        <p class="card-subtitle">
+                                            Ample Admin Vs Pixel Admin
+                                        </p>
+                                    </div>
+                                    <div class="ms-auto mt-3 mt-md-0">
+                                        <select class="form-select theme-select border-0" aria-label="Default select example">
+                                            <option value="1">March 2025</option>
+                                            <option value="2">March 2025</option>
+                                            <option value="3">March 2025</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="table-responsive mt-4">
+                                    <table class="table mb-0 text-nowrap varient-table align-middle fs-3">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col" class="px-0 text-muted">
+                                                Assigned
+                                            </th>
+                                            <th scope="col" class="px-0 text-muted">Name</th>
+                                            <th scope="col" class="px-0 text-muted">
+                                                Priority
+                                            </th>
+                                            <th scope="col" class="px-0 text-muted text-end">
+                                                Budget
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td class="px-0">
+                                                <div class="d-flex align-items-center">
+                                                    <img src="./assets/images/profile/user-3.jpg" class="rounded-circle" width="40"
+                                                         alt="flexy" />
+                                                    <div class="ms-3">
+                                                        <h6 class="mb-0 fw-bolder">Sunil Joshi</h6>
+                                                        <span class="text-muted">Web Designer</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-0">Elite Admin</td>
+                                            <td class="px-0">
+                                                <span class="badge bg-info">Low</span>
+                                            </td>
+                                            <td class="px-0 text-dark fw-medium text-end">
+                                                $3.9K
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-0">
+                                                <div class="d-flex align-items-center">
+                                                    <img src="./assets/images/profile/user-5.jpg" class="rounded-circle" width="40"
+                                                         alt="flexy" />
+                                                    <div class="ms-3">
+                                                        <h6 class="mb-0 fw-bolder">
+                                                            Andrew McDownland
+                                                        </h6>
+                                                        <span class="text-muted">Project Manager</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-0">Real Homes WP Theme</td>
+                                            <td class="px-0">
+                                                <span class="badge text-bg-primary">Medium</span>
+                                            </td>
+                                            <td class="px-0 text-dark fw-medium text-end">
+                                                $24.5K
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-0">
+                                                <div class="d-flex align-items-center">
+                                                    <img src="./assets/images/profile/user-6.jpg" class="rounded-circle" width="40"
+                                                         alt="flexy" />
+                                                    <div class="ms-3">
+                                                        <h6 class="mb-0 fw-bolder">
+                                                            Christopher Jamil
+                                                        </h6>
+                                                        <span class="text-muted">SEO Manager</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-0">MedicalPro WP Theme</td>
+                                            <td class="px-0">
+                                                <span class="badge bg-warning">Hight</span>
+                                            </td>
+                                            <td class="px-0 text-dark fw-medium text-end">
+                                                $12.8K
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-0">
+                                                <div class="d-flex align-items-center">
+                                                    <img src="./assets/images/profile/user-7.jpg" class="rounded-circle" width="40"
+                                                         alt="flexy" />
+                                                    <div class="ms-3">
+                                                        <h6 class="mb-0 fw-bolder">Nirav Joshi</h6>
+                                                        <span class="text-muted">Frontend Engineer</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-0">Hosting Press HTML</td>
+                                            <td class="px-0">
+                                                <span class="badge bg-danger">Low</span>
+                                            </td>
+                                            <td class="px-0 text-dark fw-medium text-end">
+                                                $2.4K
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-0">
+                                                <div class="d-flex align-items-center">
+                                                    <img src="./assets/images/profile/user-8.jpg" class="rounded-circle" width="40"
+                                                         alt="flexy" />
+                                                    <div class="ms-3">
+                                                        <h6 class="mb-0 fw-bolder">Micheal Doe</h6>
+                                                        <span class="text-muted">Content Writer</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-0">Helping Hands WP Theme</td>
+                                            <td class="px-0">
+                                                <span class="badge bg-success">Low</span>
+                                            </td>
+                                            <td class="px-0 text-dark fw-medium text-end">
+                                                $9.3K
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <!-- Card -->
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title mb-0">Recent Comments</h4>
+                            </div>
+                            <div class="comment-widgets scrollable mb-2 common-widget" style="height: 465px" data-simplebar="">
+                                <!-- Comment Row -->
+                                <div class="d-flex flex-row comment-row border-bottom p-3 gap-3">
+                                    <div>
+                      <span><img src="./assets/images/profile/user-3.jpg" class="rounded-circle" alt="user"
+                                 width="50" /></span>
+                                    </div>
+                                    <div class="comment-text w-100">
+                                        <h6 class="fw-medium">James Anderson</h6>
+                                        <p class="mb-1 fs-2 text-muted">
+                                            Lorem Ipsum is simply dummy text of the printing and
+                                            type etting industry
+                                        </p>
+                                        <div class="comment-footer mt-2">
+                                            <div class="d-flex align-items-center">
+                          <span class="
+                              badge
+                              bg-info-subtle
+                              text-info
 
-                                    <li class="timeline-item flex relative overflow-hidden min-h-[70px]">
-                                        <div
-                                            class="timeline-time text-gray-500 min-w-[90px] text-sm py-[6px] pr-4 text-end">
-                                            12:00 am
-                                        </div>
-                                        <div class="timeline-badge-wrap flex flex-col items-center ">
-                                            <div
-                                                class="timeline-badge w-3 h-3 rounded-full shrink-0 bg-transparent border-2 border-teal-500 my-[10px]">
+                            ">Pending</span>
+                                                <span class="action-icons">
+                            <a href="javascript:void(0)" class="ps-3"><i class="ti ti-edit fs-5"></i></a>
+                            <a href="javascript:void(0)" class="ps-3"><i class="ti ti-check fs-5"></i></a>
+                            <a href="javascript:void(0)" class="ps-3"><i class="ti ti-heart fs-5"></i></a>
+                          </span>
                                             </div>
-                                            <div class="timeline-badge-border block h-full w-[1px] bg-gray-100">
-                                            </div>
+                                            <span class="
+                            text-muted
+                            ms-auto
+                            fw-normal
+                            fs-2
+                            d-block
+                            mt-2
+                            text-end
+                          ">April 14, 2025</span>
                                         </div>
-                                        <div class="timeline-desc py-[6px] px-4">
-                                            <p class="text-gray-500 text-sm font-normal">Payment was made of $64.95
-                                                to Michael</p>
-                                        </div>
-                                    </li>
+                                    </div>
+                                </div>
+                                <!-- Comment Row -->
+                                <div class="d-flex flex-row comment-row border-bottom active p-3 gap-3">
+                                    <div>
+                      <span><img src="./assets/images/profile/user-5.jpg" class="rounded-circle" alt="user"
+                                 width="50" /></span>
+                                    </div>
+                                    <div class="comment-text active w-100">
+                                        <h6 class="fw-medium">Michael Jorden</h6>
+                                        <p class="mb-1 fs-2 text-muted">
+                                            Lorem Ipsum is simply dummy text of the printing and
+                                            type setting industry.
+                                        </p>
+                                        <div class="comment-footer mt-2">
+                                            <div class="d-flex align-items-center">
+                          <span class="
+                              badge
+                              bg-success-subtle
+                              text-success
 
-                                    <li class="timeline-item flex relative overflow-hidden min-h-[70px]">
-                                        <div
-                                            class="timeline-time text-gray-500 min-w-[90px] text-sm py-[6px] pr-4 text-end">
-                                            9:30 am
-                                        </div>
-                                        <div class="timeline-badge-wrap flex flex-col items-center ">
-                                            <div
-                                                class="timeline-badge w-3 h-3 rounded-full shrink-0 bg-transparent border-2 border-yellow-500 my-[10px]">
+                            ">Approved</span>
+                                                <span class="action-icons active">
+                            <a href="javascript:void(0)" class="ps-3"><i class="ti ti-edit fs-5"></i></a>
+                            <a href="javascript:void(0)" class="ps-3"><i class="ti ti-circle-x fs-5"></i></a>
+                            <a href="javascript:void(0)" class="ps-3"><i class="ti ti-heart text-danger fs-5"></i></a>
+                          </span>
                                             </div>
-                                            <div class="timeline-badge-border block h-full w-[1px] bg-gray-100">
-                                            </div>
+                                            <span class="
+                            text-muted
+                            ms-auto
+                            fw-normal
+                            fs-2
+                            text-end
+                            mt-2
+                            d-block
+                          ">April 14, 2025</span>
                                         </div>
-                                        <div class="timeline-desc py-[6px] px-4 text-sm">
-                                            <p class="text-gray-500 font-semibold">New sale recorded</p>
-                                            <a href="javascript:void('')" class="text-blue-600">#ML-3467</a>
-                                        </div>
-                                    </li>
+                                    </div>
+                                </div>
+                                <!-- Comment Row -->
+                                <div class="d-flex flex-row comment-row border-bottom p-3 gap-3">
+                                    <div>
+                      <span><img src="./assets/images/profile/user-6.jpg" class="rounded-circle" alt="user"
+                                 width="50" /></span>
+                                    </div>
+                                    <div class="comment-text w-100">
+                                        <h6 class="fw-medium">Johnathan Doeting</h6>
+                                        <p class="mb-1 fs-2 text-muted">
+                                            Lorem Ipsum is simply dummy text of the printing and
+                                            type setting industry.
+                                        </p>
+                                        <div class="comment-footer mt-2">
+                                            <div class="d-flex align-items-center">
+                          <span class="
+                              badge
+                              bg-danger-subtle
+                              text-danger
 
-                                    <li class="timeline-item flex relative overflow-hidden min-h-[70px]">
-                                        <div
-                                            class="timeline-time text-gray-500 text-sm min-w-[90px] py-[6px] pr-4 text-end">
-                                            9:30 am
-                                        </div>
-                                        <div class="timeline-badge-wrap flex flex-col items-center ">
-                                            <div
-                                                class="timeline-badge w-3 h-3 rounded-full shrink-0 bg-transparent border-2 border-red-500 my-[10px]">
+                            ">Rejected</span>
+                                                <span class="action-icons">
+                            <a href="javascript:void(0)" class="ps-3"><i class="ti ti-edit fs-5"></i></a>
+                            <a href="javascript:void(0)" class="ps-3"><i class="ti ti-check fs-5"></i></a>
+                            <a href="javascript:void(0)" class="ps-3"><i class="ti ti-heart fs-5"></i></a>
+                          </span>
                                             </div>
-                                            <div class="timeline-badge-border block h-full w-[1px] bg-gray-100">
-                                            </div>
+                                            <span class="
+                            text-muted
+                            ms-auto
+                            fw-normal
+                            fs-2
+                            d-block
+                            mt-2
+                            text-end
+                          ">April 14, 2025</span>
                                         </div>
-                                        <div class="timeline-desc py-[6px] px-4">
-                                            <p class="text-gray-500 text-sm font-semibold">New arrival recorded</p>
-                                        </div>
-                                    </li>
-                                    <li class="timeline-item flex relative overflow-hidden">
-                                        <div
-                                            class="timeline-time text-gray-500 text-sm min-w-[90px] py-[6px] pr-4 text-end">
-                                            12:00 am
-                                        </div>
-                                        <div class="timeline-badge-wrap flex flex-col items-center ">
-                                            <div
-                                                class="timeline-badge w-3 h-3 rounded-full shrink-0 bg-transparent border-2 border-teal-500 my-[10px]">
-                                            </div>
-                                            <div class="timeline-badge-border block h-full w-[1px] bg-gray-100">
-                                            </div>
-                                        </div>
-                                        <div class="timeline-desc py-[6px] px-4">
-                                            <p class="text-gray-500 text-sm font-normal">Payment Done</p>
-                                        </div>
-                                    </li>
+                                    </div>
+                                </div>
+                                <!-- Comment Row -->
+                                <div class="d-flex flex-row comment-row p-3 gap-3">
+                                    <div>
+                      <span><img src="./assets/images/profile/user-4.jpg" class="rounded-circle" alt="user"
+                                 width="50" /></span>
+                                    </div>
+                                    <div class="comment-text w-100">
+                                        <h6 class="fw-medium">James Anderson</h6>
+                                        <p class="mb-1 fs-2 text-muted">
+                                            Lorem Ipsum is simply dummy text of the printing and
+                                            type setting industry.
+                                        </p>
+                                        <div class="comment-footer mt-2">
+                                            <div class="d-flex align-items-center">
+                          <span class="
+                              badge
+                              bg-info-subtle
+                              text-info
 
+                            ">Pending</span>
+                                                <span class="action-icons">
+                            <a href="javascript:void(0)" class="ps-3"><i class="ti ti-edit fs-5"></i></a>
+                            <a href="javascript:void(0)" class="ps-3"><i class="ti ti-check fs-5"></i></a>
+                            <a href="javascript:void(0)" class="ps-3"><i class="ti ti-heart fs-5"></i></a>
+                          </span>
+                                            </div>
+                                            <span class="
+                            text-muted
+                            ms-auto
+                            fw-normal
+                            fs-2
+                            d-block
+                            text-end
+                            mt-2
+                          ">April 14, 2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <h4 class="card-title mb-0">Weather Report</h4>
+                                    <select class="form-select w-auto ms-auto">
+                                        <option selected="">Today</option>
+                                        <option value="1">Weekly</option>
+                                    </select>
+                                </div>
+                                <div class="d-flex align-items-center flex-row mt-4">
+                                    <div class="p-2 display-5 text-primary">
+                                        <i class="ti ti-cloud-snow"></i>
+                                        <span>73<sup>°</sup></span>
+                                    </div>
+                                    <div class="p-2">
+                                        <h3 class="mb-0">Saturday</h3>
+                                        <small>Ahmedabad, India</small>
+                                    </div>
+                                </div>
+                                <table class="table table-borderless">
+                                    <tbody>
+                                    <tr>
+                                        <td>Wind</td>
+                                        <td class="fw-medium">ESE 17 mph</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Humidity</td>
+                                        <td class="fw-medium">83%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pressure</td>
+                                        <td class="fw-medium">28.56 in</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cloud Cover</td>
+                                        <td class="fw-medium">78%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ceiling</td>
+                                        <td class="fw-medium">25760 ft</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <hr />
+                                <ul class="list-unstyled row text-center city-weather-days mb-0">
+                                    <li class="col">
+                                        <i class="ti ti-sun-high fs-4"></i><span>09:30</span>
+                                        <h3 class="mb-0 fs-6 lh-base">70<sup>°</sup></h3>
+                                    </li>
+                                    <li class="col">
+                                        <i class="ti ti-cloud fs-4"></i><span>11:30</span>
+                                        <h3 class="mb-0 fs-6 lh-base">72<sup>°</sup></h3>
+                                    </li>
+                                    <li class="col">
+                                        <i class="ti ti-cloud-rain fs-4"></i><span>13:30</span>
+                                        <h3 class="mb-0 fs-6 lh-base">75<sup>°</sup></h3>
+                                    </li>
+                                    <li class="col">
+                                        <i class="ti ti-cloud-snow fs-4"></i><span>15:30</span>
+                                        <h3 class="mb-0 fs-6 lh-base">76<sup>°</sup></h3>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-span-2">
-                            <div class="card h-full">
-                                <div class="card-body">
-                                    <h4 class="text-gray-500 text-lg font-semibold mb-5">Top Paying Clients</h4>
-                                    <div class="relative overflow-x-auto">
-                                        <!-- table -->
-                                        <table class="text-left w-full whitespace-nowrap text-sm text-gray-500">
-                                            <thead>
-                                            <tr class="text-sm">
-                                                <th scope="col" class="p-4 font-semibold">Profile</th>
-                                                <th scope="col" class="p-4 font-semibold">Hour Rate</th>
-                                                <th scope="col" class="p-4 font-semibold">Extra classes</th>
-                                                <th scope="col" class="p-4 font-semibold">Status</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td class="p-4 text-sm">
-                                                    <div class="flex gap-6 items-center">
-                                                        <div class="h-12 w-12 inline-block"><img
-                                                                src="../assets/images/profile/user-1.jpg"
-                                                                alt="" class="rounded-full w-100"></div>
-                                                        <div class="flex flex-col gap-1 text-gray-500">
-                                                            <h3 class=" font-bold">Mark J. Freeman</h3>
-                                                            <span class="font-normal">Prof. English</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="p-4">
-                                                    <h3 class="font-medium">$150/hour</h3>
-                                                </td>
-                                                <td class="p-4">
-                                                    <h3 class="font-medium text-teal-500">+53</h3>
-                                                </td>
-                                                <td class="p-4">
-															<span
-                                                                class="inline-flex items-center py-2 px-4 rounded-3xl font-semibold bg-teal-400 text-teal-500">Available</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="p-4 text-sm">
-                                                    <div class="flex gap-6 items-center">
-                                                        <div class="h-12 w-12 inline-block"><img
-                                                                src="../assets/images/profile/user-2.jpg"
-                                                                alt="" class="rounded-full w-100"></div>
-                                                        <div class="flex flex-col gap-1 text-gray-500">
-                                                            <h3 class=" font-bold">Nina R. Oldman</h3>
-                                                            <span class="font-normal">Prof. History</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="p-4">
-                                                    <h3 class="font-medium">$150/hour</h3>
-                                                </td>
-                                                <td class="p-4">
-                                                    <h3 class="font-medium text-teal-500">+68</h3>
-                                                </td>
-                                                <td class="p-4">
-															<span
-                                                                class="inline-flex items-center py-2 px-4 rounded-3xl font-semibold bg-blue-500 text-blue-600">In
-																Class</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="p-4 text-sm">
-                                                    <div class="flex gap-6 items-center">
-                                                        <div class="h-12 w-12 inline-block"><img
-                                                                src="../assets/images/profile/user-3.jpg"
-                                                                alt="" class="rounded-full w-100"></div>
-                                                        <div class="flex flex-col gap-1 text-gray-500">
-                                                            <h3 class=" font-bold">Arya H. Shah</h3>
-                                                            <span class="font-normal">Prof. Maths</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="p-4">
-                                                    <h3 class="font-medium">$150/hour</h3>
-                                                </td>
-                                                <td class="p-4">
-                                                    <h3 class="font-medium text-teal-500">+94</h3>
-                                                </td>
-                                                <td class="p-4">
-															<span
-                                                                class="inline-flex items-center py-2 px-4 rounded-3xl font-semibold bg-red-400 text-red-500">Absent</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="p-4 text-sm">
-                                                    <div class="flex gap-6 items-center">
-                                                        <div class="h-12 w-12 inline-block"><img
-                                                                src="../assets/images/profile/user-4.jpg"
-                                                                alt="" class="rounded-full w-100"></div>
-                                                        <div class="flex flex-col gap-1 text-gray-500">
-                                                            <h3 class=" font-bold">June R. Smith</h3>
-                                                            <span class="font-normal">Prof. Arts</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="p-4">
-                                                    <h3 class="font-medium">$150/hour</h3>
-                                                </td>
-                                                <td class="p-4">
-                                                    <h3 class="font-medium text-teal-500">+27</h3>
-                                                </td>
-                                                <td class="p-4">
-															<span
-                                                                class="inline-flex items-center py-2 px-4 rounded-3xl font-semibold bg-yellow-400 text-yellow-500">Absent</span>
-                                                </td>
-                                            </tr>
-
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                    <div class="grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-2 gap-6">
-                        <div class="card overflow-hidden">
-                            <div class="relative">
-                                <a href="javascript:void(0)">
-                                    <img src="../assets/images/products/product-1.jpg" alt="product_img"
-                                         class="w-full">
-                                </a>
-                                <a href="javascript:void(0)"
-                                   class="bg-blue-600 w-8 h-8 flex justify-center items-center text-white rounded-full absolute bottom-0 right-0 mr-4 -mb-3">
-                                    <i class="ti ti-basket text-base"></i>
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                <h6 class="text-base font-semibold text-gray-500 mb-1">Boat Headphone</h6>
-                                <div class="flex justify-between">
-                                    <div class="flex gap-2 items-center ">
-                                        <h6 class=" text-gray-500 font-semibold text-base">$50</h6>
-                                        <span class="text-gray-400 font-medium text-sm opacity-80">
-												<del>$65</del>
-											</span>
-                                    </div>
-                                    <ul class="list-none flex gap-1">
-                                        <li>
-                                            <a href="javascript:void(0)">
-                                                <i class="ti ti-star-filled text-yellow-500 text-sm"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)">
-                                                <i class="ti ti-star-filled text-yellow-500 text-sm"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)">
-                                                <i class="ti ti-star-filled text-yellow-500 text-sm"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)">
-                                                <i class="ti ti-star text-yellow-500 text-sm"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)">
-                                                <i class="ti ti-star text-yellow-500 text-sm"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card overflow-hidden">
-                            <div class="relative">
-                                <a href="javascript:void(0)">
-                                    <img src="../assets/images/products/product-2.jpg" alt="product_img"
-                                         class="w-full">
-                                </a>
-                                <a href="javascript:void(0)"
-                                   class="bg-blue-600 w-8 h-8 flex justify-center items-center text-white rounded-full absolute bottom-0 right-0 mr-4 -mb-3">
-                                    <i class="ti ti-basket text-base"></i>
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                <h6 class="text-base font-semibold text-gray-500 mb-1">MacBook Air Pro</h6>
-                                <div class="flex justify-between">
-                                    <div class="flex gap-2 items-center">
-                                        <h6 class="text-base text-gray-500 font-semibold">$650</h6>
-                                        <span class="text-gray-400 text-sm opacity-80">
-												<del>$900</del>
-											</span>
-                                    </div>
-                                    <ul class="list-none flex gap-1">
-                                        <li>
-                                            <a href="javascript:void(0)">
-                                                <i class="ti ti-star-filled text-yellow-500 text-sm"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)">
-                                                <i class="ti ti-star-filled text-yellow-500 text-sm"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)">
-                                                <i class="ti ti-star-filled text-yellow-500 text-sm"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)">
-                                                <i class="ti ti-star text-yellow-500 text-sm"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)">
-                                                <i class="ti ti-star text-yellow-500 text-sm"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card overflow-hidden">
-                            <div class="relative">
-                                <a href="javascript:void(0)">
-                                    <img src="../assets/images/products/product-3.jpg" alt="product_img"
-                                         class="w-full">
-                                </a>
-                                <a href="javascript:void(0)"
-                                   class="bg-blue-600 w-8 h-8 flex justify-center items-center text-white rounded-full absolute bottom-0 right-0 mr-4 -mb-3">
-                                    <i class="ti ti-basket text-base"></i>
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                <h6 class="text-base font-semibold text-gray-500 mb-1">Red Valvet Dress</h6>
-                                <div class="flex justify-between">
-                                    <div class="flex gap-2 items-center">
-                                        <h6 class="text-base text-gray-500 font-semibold">$150</h6>
-                                        <span class="text-gray-400 text-sm opacity-80">
-												<del>$200</del>
-											</span>
-                                    </div>
-                                    <ul class="list-none flex gap-1">
-                                        <li>
-                                            <a href="javascript:void(0)">
-                                                <i class="ti ti-star-filled text-yellow-500 text-sm"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)">
-                                                <i class="ti ti-star-filled text-yellow-500 text-sm"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)">
-                                                <i class="ti ti-star-filled text-yellow-500 text-sm"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)">
-                                                <i class="ti ti-star text-yellow-500 text-sm"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)">
-                                                <i class="ti ti-star text-yellow-500 text-sm"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card overflow-hidden">
-                            <div class="relative">
-                                <a href="javascript:void(0)">
-                                    <img src="../assets/images/products/product-4.jpg" alt="product_img"
-                                         class="w-full">
-                                </a>
-                                <a href="javascript:void(0)"
-                                   class="bg-blue-600 w-8 h-8 flex justify-center items-center text-white rounded-full absolute bottom-0 right-0 mr-4 -mb-3">
-                                    <i class="ti ti-basket text-base"></i>
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                <h6 class="text-base font-semibold text-gray-500 mb-1">Cute Soft Teddybear</h6>
-                                <div class="flex justify-between">
-                                    <div class="flex gap-2 items-center">
-                                        <h6 class="text-base text-gray-500 font-semibold">$285</h6>
-                                        <span class="text-gray-400 text-sm">
-												<del>$345</del>
-											</span>
-                                    </div>
-                                    <ul class="list-none flex gap-1">
-                                        <li>
-                                            <a href="javascript:void(0)">
-                                                <i class="ti ti-star-filled text-yellow-500 text-sm"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)">
-                                                <i class="ti ti-star-filled text-yellow-500 text-sm"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)">
-                                                <i class="ti ti-star-filled text-yellow-500 text-sm"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)">
-                                                <i class="ti ti-star text-yellow-500 text-sm"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)">
-                                                <i class="ti ti-star text-yellow-500 text-sm"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <footer>
-                        <p class="text-base text-gray-400 font-normal p-3 text-center">
-                            Design and Developed by <a href="https://www.wrappixel.com/"
-                                                       class="text-blue-600 underline hover:text-blue-700">wrappixel.com</a>
-                        </p>
-                    </footer>
                 </div>
-
-
-            </main>
-            <!-- Main Content End -->
-
+                <div class="py-6 px-6 text-center">
+                    <p class="mb-0 fs-4">Design and Developed by <a href="#"
+                                                                    class="pe-1 text-primary text-decoration-underline">Wrappixel.com</a> Distributed by <a href="https://themewagon.com" target="_blank" >ThemeWagon</a></p>
+                </div>
+            </div>
         </div>
     </div>
-    <!--end of project-->
-</main>
+</div>
 @include('footer')

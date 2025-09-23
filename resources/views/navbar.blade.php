@@ -1,43 +1,189 @@
-<aside id="application-sidebar-brand"
-       class="hs-overlay hs-overlay-open:translate-x-0 -translate-x-full  transform hidden xl:block xl:translate-x-0 xl:end-auto xl:bottom-0 fixed xl:top-[90px] xl:left-auto top-0 left-0 with-vertical h-screen z-[999] shrink-0  w-[270px] shadow-md xl:rounded-md rounded-none bg-white left-sidebar   transition-all duration-300">
-    <div class="p-4">
-        <a href="../" class="text-nowrap">
-            <img
-                src="{{ asset('assets/images/logos/logo-light.svg') }}"
-                alt="Logo-Dark"
-            />
-        </a>
-    </div>
-    <div class="scroll-sidebar" data-simplebar="">
-        <nav class=" w-full flex flex-col sidebar-nav px-4 mt-5">
-            <ul id="sidebarnav" class="text-gray-600 text-sm">
-                <li class="text-xs font-bold pb-[5px]">
-                    <i class="ti ti-dots nav-small-cap-icon text-lg hidden text-center"></i>
-                    <span class="text-xs text-gray-400 font-semibold">Menüler</span>
+<aside class="left-sidebar">
+    <!-- Sidebar scroll-->
+    <div>
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+            <a href="./index.html" class="text-nowrap logo-img">
+                <img src="assets/images/logos/logo.svg" alt="" />
+            </a>
+            <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+                <i class="ti ti-x fs-6"></i>
+            </div>
+        </div>
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+            <ul id="sidebarnav">
+                <li class="nav-small-cap">
+                    <iconify-icon icon="solar:menu-dots-linear" class="nav-small-cap-icon fs-4"></iconify-icon>
+                    <span class="hide-menu">Menüler</span>
                 </li>
                 <li class="sidebar-item" {{ request()->is('index') ? "active" : "" }}>
-                    <a class="sidebar-link gap-3 py-2.5 my-1 text-base  flex items-center relative  rounded-md text-gray-500  w-full"
-                       href="/index">
-                        <i class="ti ti-layout-dashboard ps-2  text-2xl"></i> <span>Kontrol Paneli</span>
+                    <a class="sidebar-link" href="/index" aria-expanded="false">
+                        <i class="ti ti-atom"></i>
+                        <span class="hide-menu">Kontrol Paneli</span>
                     </a>
                 </li>
-                <li class="sidebar-item" {{ request()->is('sales') ? "active" : "" }}>
-                    <a class="sidebar-link gap-3 py-2.5 my-1 text-base flex items-center justify-between relative rounded-md text-gray-500 w-full"
-                       href="/sales-contract">
-                        <div class="flex items-center gap-2">
-                            <i class="ti ti-clipboard ps-2 text-2xl"></i> <span>Satış Sözleşmesi</span>
+                <li class="sidebar-item">
+                    <a class="sidebar-link justify-content-between has-arrow" href="javascript:void(0)" aria-expanded="false">
+                        <div class="d-flex align-items-center gap-3">
+                  <span class="d-flex">
+                    <i class="ti ti-file-text"></i>
+                  </span>
+                            <span class="hide-menu">Sözleşmeler</span>
                         </div>
+
                     </a>
+                    <ul aria-expanded="false" class="collapse first-level">
+                        <li class="sidebar-item">
+                            <a class="sidebar-link justify-content-between"
+                               href="#">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Satış Sözleşmeleri</span>
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link justify-content-between"
+                               href="/rent-contracts">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Kira Sözleşmeleri</span>
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link justify-content-between"
+                               href="#">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Yer Gösterme Belgesi</span>
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link justify-content-between"
+                               href="#">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Kiralama Yetki Belgesi</span>
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link justify-content-between"
+                               href="#">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Satış Yetki Belgesi</span>
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link justify-content-between"
+                               href="#">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Fesih Sözleşmesi</span>
+                                </div>
+
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-                <li class="sidebar-item" {{ request()->is('rent') ? "active" : "" }}>
-                    <a class="sidebar-link gap-3 py-2.5 my-1 text-base flex items-center justify-between relative rounded-md text-gray-500 w-full"
-                       href="/rent-contracts">
-                        <div class="flex items-center gap-2">
-                            <i class="ti ti-key ps-2 text-2xl"></i> <span>Kira Sözleşmesi</span>
+                <li class="sidebar-item">
+                    <a class="sidebar-link justify-content-between has-arrow" href="javascript:void(0)" aria-expanded="false">
+                        <div class="d-flex align-items-center gap-3">
+                  <span class="d-flex">
+                    <i class="ti ti-file-text"></i>
+                  </span>
+                            <span class="hide-menu">Gelir / Gider</span>
                         </div>
+
                     </a>
+                    <ul aria-expanded="false" class="collapse first-level">
+                        <li class="sidebar-item">
+                            <a class="sidebar-link justify-content-between"
+                               href="#">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Ofis Giderleri</span>
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link justify-content-between"
+                               href="/rent-contracts">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Satış / Komisyon Gelirleri</span>
+                                </div>
+
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link justify-content-between has-arrow" href="javascript:void(0)" aria-expanded="false">
+                        <div class="d-flex align-items-center gap-3">
+                  <span class="d-flex">
+                    <i class="ti ti-file-text"></i>
+                  </span>
+                            <span class="hide-menu">Tanımlamalar</span>
+                        </div>
+
+                    </a>
+                    <ul aria-expanded="false" class="collapse first-level">
+                        <li class="sidebar-item">
+                            <a class="sidebar-link justify-content-between"
+                               href="#">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Demirbaş Tanımları</span>
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link justify-content-between"
+                               href="/rent-contracts">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Özel Koşullar</span>
+                                </div>
+
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </nav>
+        <!-- End Sidebar navigation -->
     </div>
+    <!-- End Sidebar scroll-->
 </aside>

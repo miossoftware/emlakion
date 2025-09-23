@@ -1,86 +1,64 @@
-<!DOCTYPE html>
-<html   lang="en" dir="ltr" >
+<!doctype html>
+<html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Favicon icon-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Giriş Yap | EMLAKION</title>
     <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/logos/favicon.png') }}" />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-          rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
-    <!-- Core Css -->
-    <link rel="stylesheet" href="{{ asset('assets/css/theme.css') }}" />
-    <title>Giriş Yap</title>
+    <link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}" />
 </head>
 
-<body class="DEFAULT_THEME ">
-<main>
-    <!-- Main Content -->
-    <div class="flex flex-col w-full  overflow-hidden relative min-h-screen radial-gradient items-center justify-center g-0 px-4">
-
-        <div class="justify-center items-center w-full card lg:flex max-w-md ">
-            <div class=" w-full card-body">
-                <a href="../" class="py-4 block"><img src="{{ asset('assets/images/logos/logo-light.svg') }}" alt="" class="mx-auto"/></a>
-                <p class="mb-4 text-gray-400 text-sm text-center">Emlak Satış - Kiralama Sözleşme Uygulaması</p>
-                <!-- form -->
-                <form>
-                    <!-- username -->
-                    <div class="mb-4">
-                        <label for="forUsername"
-                               class="block text-sm mb-2 text-gray-400">Kullanıcı Adı</label>
-                        <input type="text" id="forUsername"
-                               class="py-3 px-4 block w-full border-gray-200 rounded-sm text-sm focus:border-blue-600 focus:ring-0 " aria-describedby="hs-input-helper-text">
-                    </div>
-                    <!-- password -->
-                    <div class="mb-6">
-                        <label for="forPassword"
-                               class="block text-sm  mb-2 text-gray-400">Şifre</label>
-                        <input type="password" id="forPassword"
-                               class="py-3 px-4 block w-full border-gray-200 rounded-sm text-sm focus:border-blue-600 focus:ring-0 " aria-describedby="hs-input-helper-text">
-                    </div>
-                    <!-- checkbox -->
-                    <div class="flex justify-between">
-                        <div class="flex">
-                            <input type="checkbox" class="shrink-0 mt-0.5 border-gray-200 rounded-[4px] text-blue-600 focus:ring-blue-500 " id="hs-default-checkbox" checked>
-                            <label for="hs-default-checkbox" class="text-sm text-gray-500 ms-3">Beni Hatırla</label>
+<body>
+<!--  Body Wrapper -->
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed">
+    <div
+        class="position-relative overflow-hidden text-bg-light min-vh-100 d-flex align-items-center justify-content-center">
+        <div class="d-flex align-items-center justify-content-center w-100">
+            <div class="row justify-content-center w-100">
+                <div class="col-md-8 col-lg-6 col-xxl-3">
+                    <div class="card mb-0">
+                        <div class="card-body">
+                            <a href="/login" class="text-nowrap logo-img text-center d-block py-3 w-100">
+                                <img src="{{ asset('assets/images/logos/logo.svg') }}" alt="">
+                            </a>
+                            <p class="text-center">Emlak Satış - Kira Sözleşme Uygulaması</p>
+                            <form action="/index">
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Kullanıcı Adı</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="exampleInputPassword1" class="form-label">Şifre</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1">
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between mb-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input primary" type="checkbox" value="" id="flexCheckChecked" checked>
+                                        <label class="form-check-label text-dark" for="flexCheckChecked">
+                                            Beni Hatırla
+                                        </label>
+                                    </div>
+                                    <a class="text-primary fw-bold" href="./index.html">Şifremi Unuttum</a>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Giriş Yap</button>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <p class="fs-4 mb-0 fw-bold">Hesabın Yok mu ?</p>
+                                    <a class="text-primary fw-bold ms-2" href="">Yeni Hesap Oluştur</a>
+                                </div>
+                            </form>
                         </div>
-                        <a href="../" class="text-sm font-semibold text-blue-600 hover:text-blue-700">Şifremi Unuttum</a>
                     </div>
-                    <!-- button -->
-                    <div class="grid my-6">
-                        <a href="/index" class="btn py-[10px] text-base text-white font-medium hover:bg-blue-700">Giriş Yap</a>
-                    </div>
-
-                    <div class="flex justify-center gap-2 items-center">
-                        <p class="text-base font-semibold text-gray-400">Hesabınız Yokmu ?</p>
-                        <a href="" class="text-sm font-semibold text-blue-600 hover:text-blue-700">Yeni Hesap Oluşturun</a>
-                    </div>
+                </div>
             </div>
-            </form>
         </div>
     </div>
-
-    </div>
-    <!--end of project-->
-</main>
-
-
-
+</div>
 <script src="{{ asset('assets/libs/jquery/dist/jquery.min.js') }}"></script>
-<script src="{{ asset('assets/libs/simplebar/dist/simplebar.min.js') }}"></script>
-<script src="{{ asset('assets/libs/iconify-icon/dist/iconify-icon.min.js') }}"></script>
-<script src="{{ asset('assets/libs/@preline/dropdown/index.js') }}"></script>
-<script src="{{ asset('assets/libs/@preline/overlay/index.js') }}"></script>
-<script src="{{ asset('assets/js/sidebarmenu.js') }}"></script>
-
+<script src="{{ asset('assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
 <!-- solar icons -->
 <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
-<script src="{{ asset('assets/libs/preline/dist/preline.js') }}"></script>
-
 </body>
 
 </html>
