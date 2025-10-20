@@ -28,3 +28,9 @@ Route::get('/general-conditions/{id}', [ConditionController::class, 'generalCond
 Route::post('/generalConditionsAdd', [ConditionController::class, 'generalConditionsAdd'])->name('general_conditions.add');
 Route::post('/generalConditionsUpdateById/{id}', [ConditionController::class, 'generalConditionsUpdateById'])->name('general_conditions.update');
 Route::get('/generalConditionsDeleteById/{id}', [ConditionController::class, 'generalConditionsDeleteById'])->name('general_conditions.delete');
+
+Route::get('/special-conditions', [ConditionController::class, 'specialConditions'])->name('special.conditions');
+Route::get('/special-conditions/{id}', [ConditionController::class, 'specialConditionsById'])->name('special_conditions.show');
+Route::post('/specialConditionsAdd', [ConditionController::class, 'specialConditionsAdd'])->name('special_conditions.add');
+Route::post('/specialConditionsUpdateById/{id}', [ConditionController::class, 'specialConditionsUpdateById'])->name('special_conditions.update');
+Route::get('/specialConditionsDeleteById/{id}', [ConditionController::class, 'specialConditionsDeleteById'])->name('special_conditions.delete');
