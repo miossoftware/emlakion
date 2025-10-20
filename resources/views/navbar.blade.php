@@ -167,6 +167,18 @@
 
                             </a>
                         </li>
+                        <li class="sidebar-item" {{ request()->is('general-conditions') ? 'active' : '' }}>
+                            <a class="sidebar-link justify-content-between"
+                               href="/general-conditions">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Genel Koşullar</span>
+                                </div>
+
+                            </a>
+                        </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link justify-content-between"
                                href="/rent-contracts">

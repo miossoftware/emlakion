@@ -1,4 +1,58 @@
 @include('header')
+<style>
+    .stepper {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+        position: relative;
+    }
+
+    .stepper::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: #ddd;
+        z-index: 0;
+    }
+
+    .step {
+        z-index: 1;
+        background: #fff;
+        padding: 10px;
+        text-align: center;
+        flex: 1;
+        position: relative;
+    }
+
+    .step .circle {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background: #ddd;
+        margin: 0 auto 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: #fff;
+    }
+
+    .step.active .circle {
+        background: #0d6efd;
+    }
+
+    .step.completed .circle {
+        background: #198754;
+    }
+
+    .step.completed .circle::after {
+        content: "✓";
+        font-weight: bold;
+    }
+</style>
 <!--  Body Wrapper -->
 <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
      data-sidebar-position="fixed" data-header-position="fixed">
@@ -131,255 +185,521 @@
                                             class="ti ti-arrow-left"></i></button>
                                 @endif
                             </div>
-                            <ul class="nav nav-pills nav-fill">
-                                <li class="nav-item">
-                                    <a class="nav-link active main-class" id="kiralanan" href="#">Kiralanan</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link main-class" id="kiralayan" href="#">Kiralayan</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link main-class" id="kiraci" href="#">Kiracı</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link main-class" href="#">Genel Koşullar</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link main-class" href="#">Özel Koşullar</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link main-class" href="#">Demirbaş Zimmet</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link main-class" href="#">Tahliye Taahüt</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link main-class" href="#">Kira Fesih Sözleşmesi</a>
-                                </li>
-                            </ul>
-                            <div class="row mt-5 kiralanan-div">
-                                <div class="col-md-6">
-                                    <div class="form-group row">
-                                        <div class="col-md-4">
-                                            <label>İl</label>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <input type="text" class="form-control">
-                                        </div>
+                            <div class="container">
+                                <h3 class="mb-4">Kira Sözleşmesi</h3>
+
+                                <!-- Adım Çizelgesi -->
+                                <div class="stepper">
+                                    <div class="step active" data-step="1">
+                                        <div class="circle">1</div>
+                                        <div>Kiralanan (Mülk)</div>
                                     </div>
-                                    <div class="form-group row mt-2">
-                                        <div class="col-md-4">
-                                            <label>İlçe</label>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <input type="text" class="form-control">
-                                        </div>
+                                    <div class="step" data-step="2">
+                                        <div class="circle">2</div>
+                                        <div>Kiraya Veren</div>
                                     </div>
-                                    <div class="form-group row mt-2">
-                                        <div class="col-md-4">
-                                            <label>Mahalle</label>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <input type="text" class="form-control">
-                                        </div>
+                                    <div class="step" data-step="3">
+                                        <div class="circle">3</div>
+                                        <div>Kiracı</div>
                                     </div>
-                                    <div class="form-group row mt-2">
-                                        <div class="col-md-4">
-                                            <label>Cadde</label>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <input type="text" class="form-control">
-                                        </div>
+                                    <div class="step" data-step="4">
+                                        <div class="circle">4</div>
+                                        <div>Genel Koşullar</div>
                                     </div>
-                                    <div class="form-group row mt-2">
-                                        <div class="col-md-4">
-                                            <label>Apartman Adı</label>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <input type="text" class="form-control">
-                                        </div>
+                                    <div class="step" data-step="5">
+                                        <div class="circle">5</div>
+                                        <div>Özel Koşullar</div>
                                     </div>
-                                    <div class="form-group row mt-2">
-                                        <div class="col-md-4">
-                                            <label>Bina No</label>
-                                        </div>
-                                        <div class="col-md-7 row no-gutters">
-                                            <div class="col-md">
-                                                <input type="text" placeholder="Bina" class="form-control">
-                                            </div>
-                                            <div class="col-md">
-                                                <input type="text" placeholder="Kat" class="form-control">
-                                            </div>
-                                            <div class="col-md">
-                                                <input type="text" placeholder="Daire" class="form-control">
-                                            </div>
-                                        </div>
+                                    <div class="step" data-step="6">
+                                        <div class="circle">6</div>
+                                        <div>Demirbaş Zimmet</div>
                                     </div>
-                                    <div class="form-group row mt-2">
-                                        <div class="col-md-4">
-                                            <label>Kiralanan Cinsi</label>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <select class="form-select" id="">
-                                                <option value="">Seçiniz...</option>
-                                                <option value="Emlak">Emlak</option>
-                                                <option value="Ofis">Ofis</option>
-                                                <option value="Arsa">Arsa</option>
-                                                <option value="Tarla">Tarla</option>
-                                            </select>
-                                        </div>
+                                    <div class="step" data-step="7">
+                                        <div class="circle">7</div>
+                                        <div>Tahliye Taahüt</div>
                                     </div>
-                                    <div class="form-group row mt-2">
-                                        <div class="col-md-4">
-                                            <label>Başlangıç Tarihi</label>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <input type="date" class="form-control" onfocusout="calculateEndDate()"
-                                                   id="first_date">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row mt-2">
-                                        <div class="col-md-4">
-                                            <label>Süre (AY)</label>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <input type="text" class="form-control" onfocusout="calculateEndDate()"
-                                                   id="date_month">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row mt-2">
-                                        <div class="col-md-4">
-                                            <label>Bitiş Tarihi</label>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <input type="date" readonly class="form-control" id="last_date">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row mt-2">
-                                        <div class="col-md-4">
-                                            <label>Depozito Senedi</label>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox"
-                                                       id="flexSwitchCheckDefault">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-md-4">
-                                            <label>Nakit Depozito</label>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox"
-                                                       id="flexSwitchCheckDefault">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-md-4">
-                                            <label>Diğer</label>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox"
-                                                       id="flexSwitchCheckDefault">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row mt-2">
-                                        <div class="col-md-4">
-                                            <label>Miktar</label>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <input class="form-control" type="text" id="flexSwitchCheckDefault">
-                                        </div>
+                                    <div class="step" data-step="8">
+                                        <div class="circle">8</div>
+                                        <div>Kira Fesih Sözleşmesi</div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group row">
-                                        <div class="col-md-4">
-                                            <label>Aylık Kira Bedeli</label>
+
+                                <div class="tab-content">
+                                    <!-- Adım 1 -->
+                                    <div class="tab-pane fade show active" id="step1">
+                                        <div class="col-md-12 row">
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <div class="col-md-4">
+                                                        <label>İl</label>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <input type="text" class="form-control form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mt-1">
+                                                    <div class="col-md-4">
+                                                        <label>İlçe</label>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <input type="text" class="form-control form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mt-1">
+                                                    <div class="col-md-4">
+                                                        <label>Mahalle</label>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <input type="text" class="form-control form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mt-1">
+                                                    <div class="col-md-4">
+                                                        <label>Cadde</label>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <input type="text" class="form-control form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mt-1">
+                                                    <div class="col-md-4">
+                                                        <label>Sokak</label>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <input type="text" class="form-control form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mt-1">
+                                                    <div class="col-md-4">
+                                                        <label>Apt. Adı</label>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <input type="text" class="form-control form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mt-1">
+                                                    <div class="col-md-4">
+                                                        <label>Bina</label>
+                                                    </div>
+                                                    <div class="col-md-7 row no-gutters">
+                                                        <div class="col-md">
+                                                            <input type="text" placeholder="No" class="form-control">
+                                                        </div>
+                                                        <div class="col-md">
+                                                            <input type="text" class="form-control" placeholder="Kat">
+                                                        </div>
+                                                        <div class="col-md">
+                                                            <input type="text" class="form-control" placeholder="Daire">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mt-1">
+                                                    <div class="col-md-4">
+                                                        <label>Kiralanan Cinsi</label>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mt-1">
+                                                    <div class="col-md-4">
+                                                        <label>Başlangıç Tarihi</label>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <input type="date" value="{{ date("Y-m-d") }}" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mt-1">
+                                                    <div class="col-md-4">
+                                                        <label>Süre (Ay)</label>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <input type="number" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mt-1">
+                                                    <div class="col-md-4">
+                                                        <label>Bitiş Süresi</label>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <input type="date" readonly class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mt-1">
+                                                    <div class="col-md-4">
+                                                        <label>Alınan Depozito</label>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <select class="form-select" id="">
+                                                            <option value="">Seçiniz...</option>
+                                                            <option value="Depozito Senedi">Depozito Senedi</option>
+                                                            <option value="Nakit Depozito">Nakit Depozito</option>
+                                                            <option value="Özel Seçim">Özel Seçim</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mt-1">
+                                                    <div class="col-md-4">
+                                                        <label>Depozito Miktarı</label>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group row">
+                                                    <div class="col-md-4">
+                                                        <label>Aylık Bedel</label>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mt-1">
+                                                    <div class="col-md-4">
+                                                        <label>Yıllık Bedel</label>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mt-1">
+                                                    <div class="col-md-4">
+                                                        <label>Tahsil Günü</label>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <input type="number" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mt-1">
+                                                    <div class="col-md-4">
+                                                        <label>Kira Bedelinin Ödeme Şekli</label>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <textarea class="form-control" id=""  rows="3" style="resize: none"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mt-1">
+                                                    <div class="col-md-4">
+                                                        <label>Kiralanan Kullanım Şekli</label>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <textarea class="form-control" id=""  rows="3" style="resize: none"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mt-1">
+                                                    <div class="col-md-4">
+                                                        <label>Kiralanan Durum</label>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <textarea class="form-control" id=""  rows="3" style="resize: none"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mt-1">
+                                                    <div class="col-md-4">
+                                                        <label>Fotoğraf 1</label>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <input type="file" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mt-1">
+                                                    <div class="col-md-4">
+                                                        <label>Fotoğraf 2</label>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <input type="file" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mt-1">
+                                                    <div class="col-md-4">
+                                                        <label>Fotoğraf 3</label>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <input type="file" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mt-1">
+                                                    <div class="col-md-4">
+                                                        <label>Fotoğraf 4</label>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <input type="file" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="col-md-7">
-                                            <input class="form-control" type="text" style="text-align: right" id="aylik_kira">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row mt-2">
-                                        <div class="col-md-4">
-                                            <label>Bir Yıllık Kira Bedeli</label>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <input class="form-control" type="text" style="text-align: right" id="yillik_kira">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row mt-2">
-                                        <div class="col-md-4">
-                                            <label>Kira Bedeli Ödeme Şekli</label>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <select class="form-select" id="">
-                                                <option value="">Seçiniz...</option>
-                                                <option value="Yıllık">Yıllık</option>
-                                                <option value="Aylık">Aylık</option>
-                                                <option value="Günlük">Günlük</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row mt-2">
-                                        <div class="col-md-4">
-                                            <label>Kullanım Şekli</label>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <textarea class="form-control" style="resize: none" id="" cols="30"
-                                                      rows="3"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row mt-2">
-                                        <div class="col-md-4">
-                                            <label>Durum</label>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <textarea class="form-control" style="resize: none" id="" cols="30"
-                                                      rows="3"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row mt-2">
-                                        <div class="col-md-4">
-                                            <label>Fotoğraf 1</label>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <input type="file" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row mt-2">
-                                        <div class="col-md-4">
-                                            <label>Fotoğraf 2</label>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <input type="file" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row mt-2">
-                                        <div class="col-md-4">
-                                            <label>Fotoğraf 3</label>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <input type="file" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row mt-2">
-                                        <div class="col-md-4">
-                                            <label>Fotoğraf 4</label>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <input type="file" class="form-control">
-                                        </div>
+                                        <button class="btn btn-primary nextBtn">Sonraki</button>
                                     </div>
 
+                                    <!-- Adım 2 -->
+                                    <div class="tab-pane fade" id="step2">
+                                        <h5>Kiraya Veren</h5>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <h6>Mal Sahibi</h6>
+                                                <input type="text" class="form-control mb-2" placeholder="Ad Soyad">
+                                                <input type="text" class="form-control mb-2"
+                                                       placeholder="T.C. Kimlik No">
+                                                <input type="text" class="form-control mb-2"
+                                                       placeholder="Adres">
+                                                <input type="text" class="form-control mb-2"
+                                                       placeholder="Telefon">
+                                                <input type="file" class="form-control mb-2"
+                                                       placeholder="Kimlik Fotoğrafı">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <h6>Sözleşmeyi İmzalayan</h6>
+                                                <select class="form-select" id="">
+                                                    <option value="">Sözleşmeyi İmzalayan</option>
+                                                    <option value="Kendisi">Kendisi</option>
+                                                    <option value="Vekili">Vekili</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <h6>Vekili</h6>
+                                                <input type="text" class="form-control mb-2" placeholder="Ad Soyad">
+                                                <input type="text" class="form-control mb-2"
+                                                       placeholder="T.C. Kimlik No">
+                                                <input type="file" class="form-control mb-2"
+                                                       placeholder="Kimlik Fotoğrafı">
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-secondary prevBtn">Geri</button>
+                                        <button class="btn btn-primary nextBtn">Sonraki</button>
+                                    </div>
+
+                                    <!-- Adım 3 -->
+                                    <div class="tab-pane fade" id="step3">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h5>Kiracı 1</h5>
+                                                <input type="text" class="form-control mb-2" placeholder="Ad Soyad">
+                                                <input type="text" class="form-control mb-2" placeholder="TC. Kimlik No">
+                                                <input type="text" class="form-control mb-2" placeholder="Adres">
+                                                <input type="text" class="form-control mb-2" placeholder="Telefon">
+                                                <input type="file" class="form-control mb-2" placeholder="Fotoğraf 1">
+                                                <input type="file" class="form-control mb-2" placeholder="Fotoğraf 2">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h5>Kiracı 2</h5>
+                                                <input type="text" class="form-control mb-2" placeholder="Ad Soyad">
+                                                <input type="text" class="form-control mb-2" placeholder="TC. Kimlik No">
+                                                <input type="text" class="form-control mb-2" placeholder="Adres">
+                                                <input type="text" class="form-control mb-2" placeholder="Telefon">
+                                                <input type="file" class="form-control mb-2" placeholder="Fotoğraf 1">
+                                                <input type="file" class="form-control mb-2" placeholder="Fotoğraf 2">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h5>Kiracı 3</h5>
+                                                <input type="text" class="form-control mb-2" placeholder="Ad Soyad">
+                                                <input type="text" class="form-control mb-2" placeholder="TC. Kimlik No">
+                                                <input type="text" class="form-control mb-2" placeholder="Adres">
+                                                <input type="text" class="form-control mb-2" placeholder="Telefon">
+                                                <input type="file" class="form-control mb-2" placeholder="Fotoğraf 1">
+                                                <input type="file" class="form-control mb-2" placeholder="Fotoğraf 2">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h5>Kiracı 4</h5>
+                                                <input type="text" class="form-control mb-2" placeholder="Ad Soyad">
+                                                <input type="text" class="form-control mb-2" placeholder="TC. Kimlik No">
+                                                <input type="text" class="form-control mb-2" placeholder="Adres">
+                                                <input type="text" class="form-control mb-2" placeholder="Telefon">
+                                                <input type="file" class="form-control mb-2" placeholder="Fotoğraf 1">
+                                                <input type="file" class="form-control mb-2" placeholder="Fotoğraf 2">
+                                            </div>
+                                        </div>
+
+                                        <button class="btn btn-secondary prevBtn">Geri</button>
+                                        <button class="btn btn-primary nextBtn">Sonraki</button>
+                                    </div>
+
+                                    <!-- Adım 4 -->
+                                    <div class="tab-pane fade" id="step4">
+                                        <h5>Genel Koşullar</h5>
+                                        <div class="table-responsive">
+                                            <table class="table table-sm table-hover table-striped align-middle mb-0">
+                                                <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Genel Koşul</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td><input type="checkbox"></td>
+                                                    <td>Test 123</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="checkbox"></td>
+                                                    <td>Test 123</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="checkbox"></td>
+                                                    <td>Test 123</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="checkbox"></td>
+                                                    <td>Test 123</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="checkbox"></td>
+                                                    <td>Test 123</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <button class="btn btn-secondary prevBtn">Geri</button>
+                                        <button class="btn btn-primary nextBtn">Sonraki</button>
+                                    </div>
+                                    <!-- Adım 5 -->
+                                    <div class="tab-pane fade" id="step5">
+                                        <h5>Özel Koşullar</h5>
+                                        <div class="table-responsive">
+                                            <table class="table table-sm table-hover table-striped align-middle mb-0">
+                                                <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Özel Koşul</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td><input type="checkbox"></td>
+                                                    <td>Test 123</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="checkbox"></td>
+                                                    <td>Test 123</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="checkbox"></td>
+                                                    <td>Test 123</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="checkbox"></td>
+                                                    <td>Test 123</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="checkbox"></td>
+                                                    <td>Test 123</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <button class="btn btn-secondary prevBtn">Geri</button>
+                                        <button class="btn btn-primary nextBtn">Sonraki</button>
+                                    </div>
+                                    <!-- Adım 6 -->
+                                    <div class="tab-pane fade" id="step6">
+                                        <h5>Demirbaş Zimmet</h5>
+                                        <div class="table-responsive">
+                                            <table class="table table-sm table-hover table-striped align-middle mb-0">
+                                                <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Demirbaş</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td><input type="checkbox"></td>
+                                                    <td>Sandalye</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="checkbox"></td>
+                                                    <td>Masa</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="checkbox"></td>
+                                                    <td>Yemek Masası</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="checkbox"></td>
+                                                    <td>Gardrop</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="checkbox"></td>
+                                                    <td>Masa</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <button class="btn btn-secondary prevBtn">Geri</button>
+                                        <button class="btn btn-primary nextBtn">Sonraki</button>
+                                    </div>
+                                    <!-- Adım 7 -->
+                                    <div class="tab-pane fade" id="step7">
+                                        <h5>Tahliye Taahütnamesi</h5>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input type="date" value="{{ date("Y-m-d") }}" class="form-control mb-2" placeholder="Belge Tarihi">
+                                                <input type="date" value="{{ date("Y-m-d") }}" class="form-control mb-2" placeholder="Tahliye Tarihi">
+                                                <textarea type="text" class="form-control mb-2" placeholder="İlave Taahütler" style="resize: none"></textarea>
+                                                <input type="text" class="form-control mb-2" placeholder="1. Sahip Ad Soyad">
+                                                <input type="text" class="form-control mb-2" placeholder="1. Sahip Ad Soyad">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h5>Taahüt Eş Bilgileri</h5>
+                                                <input type="text" class="form-control mb-2" placeholder="Ad Soyad">
+                                                <input type="text" class="form-control mb-2" placeholder="TC. Kimlik No">
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-secondary prevBtn">Geri</button>
+                                        <button class="btn btn-primary nextBtn">Sonraki</button>
+                                    </div>
+                                    <!-- Adım 8 -->
+                                    <div class="tab-pane fade" id="step8">
+                                        <h5>Kira Fesih Sözleşmesi</h5>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control mb-2" placeholder="Mülkün Adresi">
+                                                <input type="text" class="form-control mb-2" placeholder="Mülk Sahibi">
+                                                <input type="text" class="form-control mb-2" placeholder="Kiracı">
+                                                <input type="date" value="{{ date("Y-m-d") }}" class="form-control mb-2" placeholder="Mülk Teslim Tarihi">
+                                                <input type="text" class="form-control mb-2" placeholder="Şahit 1 Ad Soyad">
+                                                <input type="text" class="form-control mb-2" placeholder="Şahit 2 Ad Soyad">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h5>Taahüt Eş Bilgileri</h5>
+                                                <input type="text" class="form-control mb-2" placeholder="Ad Soyad">
+                                                <input type="text" class="form-control mb-2" placeholder="TC. Kimlik No">
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-secondary prevBtn">Geri</button>
+                                        <button class="btn btn-success">Tamamla</button>
+                                    </div>
                                 </div>
                             </div>
+                            <script>
+                                let currentStep = 1;
+
+                                function showStep(step) {
+                                    document.querySelectorAll(".tab-pane").forEach(el => el.classList.remove("show", "active"));
+                                    document.getElementById("step" + step).classList.add("show", "active");
+
+                                    document.querySelectorAll(".step").forEach((el, i) => {
+                                        el.classList.remove("active", "completed");
+                                        if (i + 1 < step) el.classList.add("completed");
+                                        if (i + 1 === step) el.classList.add("active");
+                                    });
+
+                                    currentStep = step;
+                                }
+
+                                document.querySelectorAll(".nextBtn").forEach(btn => {
+                                    btn.addEventListener("click", () => {
+                                        if (currentStep < 8) showStep(currentStep + 1);
+                                    });
+                                });
+
+                                document.querySelectorAll(".prevBtn").forEach(btn => {
+                                    btn.addEventListener("click", () => {
+                                        if (currentStep > 1) showStep(currentStep - 1);
+                                    });
+                                });
+                            </script>
                             <div style="display: none" class="row mt-5 kiraci-div">
                                 <div class="col-md-6">
                                     <div class="card">
@@ -610,7 +930,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <div style="display: none" class="row mt-5 kiraya-veren-div">
 
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -623,7 +945,7 @@
     $("body").off("change", "#aylik_kira").on("change", "#aylik_kira", function () {
         let val = $(this).val();
         val = parseFloat(val);
-        if (isNaN(val)){
+        if (isNaN(val)) {
             val = 0;
         }
         let new_val = val * 12;
@@ -665,6 +987,7 @@
         $(this).addClass("active");
         $(".kiraci-div").hide();
         $(".kiralanan-div").show();
+        $(".kiraya-veren-div").hide();
     });
 
     $("body").off("click", "#kiraci").on("click", "#kiraci", function () {
@@ -672,6 +995,7 @@
         $(this).addClass("active");
         $(".kiraci-div").show();
         $(".kiralanan-div").hide();
+        $(".kiraya-veren-div").hide();
     });
 
     $("body").off("click", "#kiralayan").on("click", "#kiralayan", function () {
@@ -679,6 +1003,7 @@
         $(this).addClass("active");
         $(".kiraci-div").hide();
         $(".kiralanan-div").hide();
+        $(".kiraya-veren-div").show();
     });
 
     $("#aylik_kira").inputmask({
