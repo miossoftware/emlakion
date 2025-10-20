@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 20 Eki 2025, 20:37:47
+-- Üretim Zamanı: 20 Eki 2025, 20:52:22
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -20,6 +20,35 @@ SET time_zone = "+00:00";
 --
 -- Veritabanı: `emlakion`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `assets_definitons`
+--
+
+CREATE TABLE `assets_definitons` (
+  `id` int(11) NOT NULL,
+  `definition_name` varchar(100) NOT NULL,
+  `insert_userid` int(11) DEFAULT NULL,
+  `insert_datetime` timestamp NULL DEFAULT NULL,
+  `update_userid` int(11) DEFAULT NULL,
+  `update_datetime` timestamp NULL DEFAULT NULL,
+  `delete_userid` int(11) DEFAULT NULL,
+  `delete_datetime` timestamp NULL DEFAULT NULL,
+  `status` smallint(6) NOT NULL DEFAULT 1,
+  `customer_key` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Tablo döküm verisi `assets_definitons`
+--
+
+INSERT INTO `assets_definitons` (`id`, `definition_name`, `insert_userid`, `insert_datetime`, `update_userid`, `update_datetime`, `delete_userid`, `delete_datetime`, `status`, `customer_key`) VALUES
+(1, 'Koltuk', 1, '2025-10-20 15:48:50', 1, '2025-10-20 15:51:11', NULL, NULL, 1, '1'),
+(2, 'Masa', 1, '2025-10-20 15:51:15', NULL, NULL, NULL, NULL, 1, '1'),
+(3, 'Sandalye', 1, '2025-10-20 15:51:19', NULL, NULL, NULL, NULL, 1, '1'),
+(4, 'tesafdasfd', 1, '2025-10-20 15:51:29', NULL, NULL, 1, '2025-10-20 15:52:12', 0, '1');
 
 -- --------------------------------------------------------
 
@@ -83,6 +112,12 @@ INSERT INTO `special_conditions` (`id`, `conditions`, `insert_userid`, `insert_d
 --
 
 --
+-- Tablo için indeksler `assets_definitons`
+--
+ALTER TABLE `assets_definitons`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Tablo için indeksler `general_conditions`
 --
 ALTER TABLE `general_conditions`
@@ -97,6 +132,12 @@ ALTER TABLE `special_conditions`
 --
 -- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
 --
+
+--
+-- Tablo için AUTO_INCREMENT değeri `assets_definitons`
+--
+ALTER TABLE `assets_definitons`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `general_conditions`

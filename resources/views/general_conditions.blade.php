@@ -166,7 +166,6 @@
                                                         <a href="{{ route('general_conditions.show', ['id' => $conditions->id]) }}"
                                                            class="btn btn-primary btn-sm"><i class="ti ti-edit"></i></a>
                                                     </td>
-                                                    <td></td>
                                                 </tr>
                                             @endforeach
                                             </tbody>

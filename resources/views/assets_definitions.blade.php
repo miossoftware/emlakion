@@ -86,7 +86,6 @@
                 </ul>
                 <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
                     <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
-
                         <li class="nav-item dropdown">
                             <a class="nav-link " href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
                                aria-expanded="false">
@@ -129,14 +128,14 @@
                         toastr.warning("{{ session('warning') }}", "Uyarı");
                     </script>
                 @endif
-                @if(isset($special_conditions))
+                @if(isset($assets_definitions))
                     <div class="row cari-turu-list">
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-md-flex align-items-center">
                                         <div>
-                                            <h4 class="card-title">Özel Koşullar</h4>
+                                            <h4 class="card-title">Demirbaş Tanımları</h4>
                                             <button class="btn btn-success" id="genel-kosullar"><i
                                                     class="ti ti-plus"></i>
                                                 Yeni Ekle
@@ -148,7 +147,7 @@
                                             <thead>
                                             <tr>
                                                 <th class="px-0 text-muted">
-                                                    Özel Koşul
+                                                    Demirbaş
                                                 </th>
                                                 <th style="width: 0% !important;" class="px-0 text-muted">
                                                     İşlem
@@ -156,13 +155,13 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($special_conditions as $conditions)
+                                            @foreach($assets_definitions as $conditions)
                                                 <tr>
-                                                    <td>{!! nl2br(e($conditions->conditions)) !!}</td>
+                                                    <td>{!! nl2br(e($conditions->definition_name)) !!}</td>
                                                     <td>
-                                                        <a href="{{ route('special_conditions.delete', ['id' => $conditions->id]) }}"
+                                                        <a href="{{ route('asset_definition.delete', ['id' => $conditions->id]) }}"
                                                            class="btn btn-danger btn-sm"><i class="ti ti-trash"></i></a>
-                                                        <a href="{{ route('special_conditions.show', ['id' => $conditions->id]) }}"
+                                                        <a href="{{ route('asset_definition.show', ['id' => $conditions->id]) }}"
                                                            class="btn btn-primary btn-sm"><i class="ti ti-edit"></i></a>
                                                     </td>
                                                 </tr>
@@ -175,31 +174,31 @@
                         </div>
                     </div>
                 @endif
-                <div class="row cari-turu-ekle" @if (isset($special_conditions)) style="display:none;" @endif>
+                <div class="row cari-turu-ekle" @if (isset($assets_definitions)) style="display:none;" @endif>
                     <form
-                        action="{{ isset($special_conditions) ? route('special_conditions.add') : route('special_conditions.update', ['id' => $justAConditions->id]) }}"
+                        action="{{ isset($assets_definitions) ? route('asset_definition.add') : route('asset_definition.update', ['id' => $justADefinition->id]) }}"
                         method="post">
                         @csrf
                         <div class="container">
                             <div class="card">
                                 <div class="card-header">
-                                    <h3>Özel Koşul Ekle</h3>
+                                    <h3>Demirbaş Ekle</h3>
                                 </div>
                                 <div class="card-body">
                                     <div class="d-flex justify-content-end">
-                                        @if (isset($special_conditions))
+                                        @if (isset($assets_definitions))
                                             <button class="btn btn-primary btn-sm" type="button" id="geri_don"><i
                                                     class="ti ti-arrow-left"></i></button>
                                         @endif
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-md-4">
-                                            <label>Özel Koşul</label>
+                                            <label>Demirbaş</label>
                                         </div>
                                         <div class="col-md-7">
-                                        <textarea class="form-control" name="conditions" id="" cols="30"
+                                        <textarea class="form-control" name="definition_name" id="" cols="30"
                                                   style="resize: none"
-                                                  rows="10">{{ isset($justAConditions) ? $justAConditions->conditions : "" }}</textarea>
+                                                  rows="10">{{ isset($justADefinition) ? $justADefinition->definition_name : "" }}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -214,6 +213,7 @@
         </div>
     </div>
 </div>
+
 <script>
 
     $("body").off("change", "#aylik_kira").on("change", "#aylik_kira", function () {

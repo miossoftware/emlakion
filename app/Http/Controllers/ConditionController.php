@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\AssetsDefinitons;
 use App\Models\GeneralConditions;
 use App\Models\SpecialConditions;
 use Illuminate\Http\Request;
@@ -155,4 +156,76 @@ class ConditionController extends Controller
             return response()->view('error_500', [], 500);
         }
     }
+
+    public function assetsDefinitions()
+    {
+        $assets_definitions = AssetsDefinitons::where("status", 1)->paginate(10);
+        return view('assets_definitions')->with('assets_definitions', $assets_definitions);
+    }
+
+    public function assetsDefinitonAdd(Request $request)
+    {
+        try {
+            AssetsDefinitons::create([
+                'definition_name' => $request->definition_name,
+                'insert_userid' => 1,
+                'insert_datetime' => date("Y-m-d H:i:s"),
+                'customer_key' => 1
+            ]);
+
+            DB::commit();
+            return redirect()->route('assets.definitions')->with('success', 'Demirbaş Eklendi');
+        } catch (Exception $e) {
+            DB::rollBack();
+            Log::error('Fatura Tipi Güncellenirken Hata :', ['error' => $e->getMessage()]);
+            return response()->view('error_500', [], 500);
+        }
+    }
+
+    public function assetsDefinitionsById($id)
+    {
+        $assets_definitions = AssetsDefinitons::find($id);
+        return view('assets_definitions')->with('justADefinition', $assets_definitions);
+    }
+
+    public function assetDefinitionUpdateById(Request $request, $id)
+    {
+        try {
+            $definition = AssetsDefinitons::find($id);
+            $definition->update([
+                'definition_name' => $request->definition_name,
+                'update_userid' => 1,
+                'update_datetime' => date("Y-m-d H:i:s"),
+                'customer_key' => 1
+            ]);
+
+            DB::commit();
+            return redirect()->route('assets.definitions')->with('success', 'Demirbaş Güncellendi');
+        } catch (Exception $e) {
+            DB::rollBack();
+            Log::error('Fatura Tipi Güncellenirken Hata :', ['error' => $e->getMessage()]);
+            return response()->view('error_500', [], 500);
+        }
+    }
+
+    public function assetDefinitionDeleteById($id)
+    {
+        try {
+            $definition = AssetsDefinitons::find($id);
+            $definition->update([
+                'status' => 0,
+                'delete_userid' => 1,
+                'delete_datetime' => date("Y-m-d H:i:s"),
+                'customer_key' => 1
+            ]);
+
+            DB::commit();
+            return redirect()->route('assets.definitions')->with('success', 'Demirbaş Silindi');
+        } catch (Exception $e) {
+            DB::rollBack();
+            Log::error('Fatura Tipi Güncellenirken Hata :', ['error' => $e->getMessage()]);
+            return response()->view('error_500', [], 500);
+        }
+    }
+
 }

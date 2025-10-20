@@ -34,3 +34,9 @@ Route::get('/special-conditions/{id}', [ConditionController::class, 'specialCond
 Route::post('/specialConditionsAdd', [ConditionController::class, 'specialConditionsAdd'])->name('special_conditions.add');
 Route::post('/specialConditionsUpdateById/{id}', [ConditionController::class, 'specialConditionsUpdateById'])->name('special_conditions.update');
 Route::get('/specialConditionsDeleteById/{id}', [ConditionController::class, 'specialConditionsDeleteById'])->name('special_conditions.delete');
+
+Route::get('/assets-definitions', [ConditionController::class, 'assetsDefinitions'])->name('assets.definitions');
+Route::get('/assets-definitions/{id}', [ConditionController::class, 'assetsDefinitionsById'])->name('asset_definition.show');
+Route::post('/assetsDefinitonAdd', [ConditionController::class, 'assetsDefinitonAdd'])->name('asset_definition.add');
+Route::post('/assetDefinitionUpdateById/{id}', [ConditionController::class, 'assetDefinitionUpdateById'])->name('asset_definition.update');
+Route::get('/assetDefinitionDeleteById/{id}', [ConditionController::class, 'assetDefinitionDeleteById'])->name('asset_definition.delete');
